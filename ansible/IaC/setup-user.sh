@@ -105,8 +105,8 @@ update_conf()
 
 ############### MAIN ###################
 
-USER="devops"
-GROUP="devops"
+USER="tse"
+GROUP="tse"
 passw="today@1234"
 
 if id -u "$USER" &>/dev/null; then 
