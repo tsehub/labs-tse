@@ -93,9 +93,9 @@ update_conf()
         sed -i '/PasswordAuthentication.*no/d' $sshdfile
         sed -i '/PasswordAuthentication.*yes/d' $sshdfile
         echo "PasswordAuthentication yes" >> $sshdfile
-        #sed -i '/PermitRootLogin.*yes/d' $sshdfile
-        #sed -i '/PermitRootLogin.*prohibit-password/d' $sshdfile
-        #echo "PermitRootLogin yes" >> $sshdfile
+        sed -i '/PermitRootLogin.*yes/d' $sshdfile
+        sed -i '/PermitRootLogin.*prohibit-password/d' $sshdfile
+        echo "PermitRootLogin yes" >> $sshdfile
         echo "updated $sshdfile Successfully -- restarting sshd service"
         service sshd restart
    else
