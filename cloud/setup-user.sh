@@ -92,10 +92,16 @@ update_conf()
         echo "ClientAliveInterval 240" >> $sshdfile
         sed -i '/PasswordAuthentication.*no/d' $sshdfile
         sed -i '/PasswordAuthentication.*yes/d' $sshdfile
+	sed -i '/PubkeyAuthentication.*no/d' $sshdfile
+        sed -i '/PubkeyAuthentication.*yes/d' $sshdfile
+	echo "PubkeyAuthentication yes" >> $sshdfile
         echo "PasswordAuthentication yes" >> $sshdfile
         sed -i '/PermitRootLogin.*yes/d' $sshdfile
         sed -i '/PermitRootLogin.*prohibit-password/d' $sshdfile
         echo "PermitRootLogin yes" >> $sshdfile
+	sed -i '/KbdInteractiveAuthentication.*no/d' $sshdfile
+ 	sed -i '/KbdInteractiveAuthentication.*yes/d' $sshdfile
+  	echo "KbdInteractiveAuthentication yes" >> $sshdfile
         echo "updated $sshdfile Successfully -- restarting sshd service"
         service sshd restart
    else
